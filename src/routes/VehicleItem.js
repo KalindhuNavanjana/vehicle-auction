@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Card, Col, Toast } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const VehicleItem = ({ vehicle: { id, name, details }, addToBiddings }) => {
     const [btnDisabled, setBtnDisabled] = useState(true);
@@ -7,7 +8,7 @@ const VehicleItem = ({ vehicle: { id, name, details }, addToBiddings }) => {
     const [toastInfo, setToastInfo] = useState({
         topic: "",
         content: "",
-        theme:'primary'
+        theme: "primary",
     });
 
     const input = useRef(null);
@@ -29,24 +30,23 @@ const VehicleItem = ({ vehicle: { id, name, details }, addToBiddings }) => {
 
     const handleSubmit = () => {
         if (input.current.value > details.price) {
-            //submit code 
+            //submit code
             const biddingAmount = input.current.value;
             input.current.value = 0;
             setBtnDisabled(true);
             setToastInfo({
                 topic: "Successful",
                 content: "Your bid has been recorded",
-                theme:'success'
+                theme: "success",
             });
             toggleToast();
 
-            addToBiddings(biddingAmount,id,name,details);
-
+            addToBiddings(biddingAmount, id, name, details);
         } else {
             setToastInfo({
                 topic: "Oops!",
                 content: "You cannot bid lower than the current price",
-                theme:'danger'
+                theme: "danger",
             });
             toggleToast();
         }
@@ -106,6 +106,13 @@ const VehicleItem = ({ vehicle: { id, name, details }, addToBiddings }) => {
                             Add to Biddings
                         </button>
                     </div>
+
+                    <Link
+                        to={`/vehicle/${id}`}
+                        className='btn btn-dark btn-sm my-1'
+                    >
+                        Show More
+                    </Link>
                 </Card.Body>
             </Card>
             <Toast
