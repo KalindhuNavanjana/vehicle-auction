@@ -66,16 +66,16 @@
 }
 
 .main .btn-cart {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#8f7b36), color-stop(40%, #85530c), color-stop(60%, #cfb47e), to(#836a08));
-  background-image: linear-gradient(#8f7b36 0%, #85530c 40%, #cfb47e 60%, #836a08 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#8f7b36), color-stop(40%, #584d3d), color-stop(60%, #cfb47e), to(#836a08));
+  background-image: linear-gradient(#8f7b36 0%, #584d3d 40%, #cfb47e 60%, #836a08 100%);
   font-weight: 500;
   -webkit-transition: ease-out 0.2s;
   transition: ease-out 0.2s;
 }
 
 .main .btn-cart:hover {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#8f7b36), color-stop(50%, #85530c), color-stop(100%, #cfb47e), to(#836a08));
-  background-image: linear-gradient(#8f7b36 0%, #85530c 50%, #cfb47e 100%, #836a08 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#8f7b36), color-stop(50%, #51483a), color-stop(100%, #cfb47e), to(#836a08));
+  background-image: linear-gradient(#8f7b36 0%, #51483a 50%, #cfb47e 100%, #836a08 100%);
   color: azure;
   -webkit-transition: ease-out 0.2s;
   transition: ease-out 0.2s;
@@ -84,12 +84,14 @@
 .main .cart {
   min-height: 100vh;
   width: 460px;
-  position: absolute;
+  position: fixed;
   right: 0px;
   top: 150px;
   z-index: 10;
   border-radius: 5px;
   overflow: hidden;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#898987), color-stop(50%, #444443), color-stop(100%, #d4d3d1), to(#838280));
+  background-image: linear-gradient(#898987 0%, #444443 50%, #d4d3d1 100%, #838280 100%);
   background-color: #333636;
   display: -webkit-box;
   display: -ms-flexbox;

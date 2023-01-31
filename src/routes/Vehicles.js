@@ -6,10 +6,13 @@ import VehicleItem from "./VehicleItem";
 
 const Home = () => {
     const [vehicles, setVehicles] = useState([]);
+    const [brand, setBrand] = useState(null);
     const [biddings, setbiddings] = useState([]);
     const [showCart, setshowCart] = useState(false);
 
     const Brands = ["Volkswagen", "Audi", "Ford", "Mercedes", "BMW"];
+
+    const brandElement = useRef(null);
     const cart = useRef(null);
 
     const addToBiddings = (amount, id, name, details) => {
@@ -32,11 +35,21 @@ const Home = () => {
         setshowCart(!showCart);
     };
 
+    const handleBrandChange = () => {
+        setBrand(brandElement.current.value);
+    };
+
     useEffect(() => {
-        axios.get("http://157.245.61.32:7979/vehicles").then((res) => {
-            setVehicles(res.data);
-        });
-    }, []);
+        if (brand) {
+            axios.get("http://157.245.61.32:7979/vehicles?details.brand="+brand).then((res) => {
+                setVehicles(res.data);
+            });
+        }else{
+            axios.get("http://157.245.61.32:7979/vehicles").then((res) => {
+                setVehicles(res.data);
+            });
+        }
+    },[brand]);
 
     return (
         <div className='main'>
@@ -47,6 +60,8 @@ const Home = () => {
                         className='form-select'
                         aria-label='Select Brand'
                         defaultValue={0}
+                        onChange={handleBrandChange}
+                        ref={brandElement}
                     >
                         <option value={0} disabled>
                             Select a Brand
@@ -59,7 +74,10 @@ const Home = () => {
                     </select>
                 </div>
 
-                <button className='btn btn-cart ms-5 col-1' onClick={toggleCart}>
+                <button
+                    className='btn btn-cart ms-5 col-1'
+                    onClick={toggleCart}
+                >
                     Show Cart
                 </button>
             </Row>
@@ -77,7 +95,6 @@ const Home = () => {
             {showCart ? (
                 <div className='cart' ref={cart}>
                     <h2>Cart</h2>
-                    <hr />
                     {biddings.map((item) => (
                         <BidItem key={item.id} item={item} />
                     ))}
