@@ -25,14 +25,12 @@ const Home = () => {
         bids.push(item);
         setbiddings(bids);
         console.log(biddings);
-        this. forceUpdate()
+        this.forceUpdate();
     };
 
-
-    const toggleCart = () =>{
-        setshowCart(!showCart)
-    }
-
+    const toggleCart = () => {
+        setshowCart(!showCart);
+    };
 
     useEffect(() => {
         axios.get("http://157.245.61.32:7979/vehicles").then((res) => {
@@ -43,24 +41,28 @@ const Home = () => {
     return (
         <div className='main'>
             <h1 className='mt-2'>Vehicle Auction</h1>
-            <div className='control'>
-                <select
-                    className='form-select'
-                    aria-label='Select Brand'
-                    defaultValue={0}
-                >
-                    <option value={0} disabled>
-                        Select a Brand
-                    </option>
-                    {Brands.map((brand) => (
-                        <option key={brand} value={brand}>
-                            {brand}
+            <Row>
+                <div className='control col-10'>
+                    <select
+                        className='form-select'
+                        aria-label='Select Brand'
+                        defaultValue={0}
+                    >
+                        <option value={0} disabled>
+                            Select a Brand
                         </option>
-                    ))}
-                </select>
-            </div>
+                        {Brands.map((brand) => (
+                            <option key={brand} value={brand}>
+                                {brand}
+                            </option>
+                        ))}
+                    </select>
+                </div>
 
-            <button onClick={toggleCart}>Show Cart</button>
+                <button className='btn btn-cart ms-5 col-1' onClick={toggleCart}>
+                    Show Cart
+                </button>
+            </Row>
 
             <Row xs={1} md={2} lg={3} className='card-grid'>
                 {vehicles.map((vehicle) => (
@@ -72,15 +74,15 @@ const Home = () => {
                 ))}
             </Row>
 
-            {showCart ? (<div className='cart' ref={cart} >
-                <h2>Cart</h2>
-                {biddings.map((item) => (
-                    <BidItem
-                        key={item.id}
-                        item={item}
-                    />
-                ))}
-            </div>):(null)}
+            {showCart ? (
+                <div className='cart' ref={cart}>
+                    <h2>Cart</h2>
+                    <hr />
+                    {biddings.map((item) => (
+                        <BidItem key={item.id} item={item} />
+                    ))}
+                </div>
+            ) : null}
         </div>
     );
 };

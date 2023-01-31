@@ -21,9 +21,9 @@ const BidItem = ({ item: { bid, id, name, details }}) => {
             </div>
             <div className='content'>
                 <p className="name">{name}</p>
-                <p className="name">{details.brand}{" "}{details.manufactureYear}</p>
-                <p className="name">{details.price}</p>
-                <h3 className="name">{bid}</h3>
+                <p className="type">{details.brand}{" "}{details.manufactureYear}</p>
+                <p className="price">{"Price : "}{details.currency}{" "}{details.price}</p>
+                <h3 className="bid">{"Bid : "}{details.currency}{" "}{bid}</h3>
             </div>
         </Card>
     );

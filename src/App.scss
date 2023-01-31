@@ -1,24 +1,25 @@
 // @import "~bootstrap/scss/bootstrap";
 
-.main{
+.main {
     background-color: rgb(58, 54, 54);
     min-height: 100vh;
     margin: 0px;
     padding: 20px 30px;
 
-    h1{
+    h1 {
         text-align: center;
         color: azure;
     }
 
-    .card-grid{
+    .card-grid {
         margin: 30px 0px;
-        .card{
+
+        .card {
             box-shadow: #00000050 2px 2px 3px;
-            background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 33%,  #494743 66%,  #989589 100%);
+            background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 33%, #494743 66%, #989589 100%);
             color: azure;
 
-            .vehicle-name{
+            .vehicle-name {
                 font-size: 20px;
                 font-weight: 700;
                 color: #310680;
@@ -26,71 +27,103 @@
                 margin: 15px 0px 0px 0px;
             }
 
-            .brand{
+            .brand {
                 margin: 0px;
             }
 
-            .image{
+            .image {
                 aspect-ratio: 16/9;
             }
 
-            .card-info{
+            .card-info {
 
                 display: flex;
                 justify-content: space-between;
-                .color{
+
+                .color {
                     height: 20px;
                     aspect-ratio: 1;
                     border-radius: 50px;
                     border: azure 1px solid;
                 }
 
-                
+
             }
 
-            .bid-btn{
-                background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 33%,  #494743 66%,  #989589 100%);
+            .bid-btn {
+                background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 33%, #494743 66%, #989589 100%);
                 transition: ease-in-out 0.3s;
 
-                &:hover{
-                    background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 50%,  #494743 100%,  #989589 100%);
+                &:hover {
+                    background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 50%, #494743 100%, #989589 100%);
                     transition: ease-in-out 0.4s;
                 }
             }
         }
     }
 
-    .cart{
+    .btn-cart{
+        background-image: linear-gradient(#8f7b36 0%, #85530c 40%, #cfb47e 60%, #836a08 100%);
+        font-weight: 500;
+        transition: ease-out 0.2s;
+
+        &:hover{
+            background-image: linear-gradient(#8f7b36 0%, #85530c 50%, #cfb47e 100%, #836a08 100%);
+            color: azure;
+            transition: ease-out 0.2s;
+        }
+    }
+
+    .cart {
         min-height: 100vh;
-        width: 400px;
+        width: 460px;
         position: absolute;
         right: 0px;
         top: 150px;
-
+        z-index: 10;
+        border-radius: 5px;
+        overflow: hidden;
         // background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 50%,  #494743 100%,  #989589 100%);
-        background-color: rgb(179, 188, 188);
+        background-color: #333636;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: #2e2c2c40 2px 2px 5px;
 
-
-        .cart-item{
-            width: 450px;
-            height: 200px;
+        h2 {
+            text-align: center;
             padding: 10px;
+            color: azure;
+            font-weight: 700;
+        }
 
-            .img{
+        .cart-item {
+            width: 450px;
+            height: 140px;
+            padding: 10px;
+            border: #494743 1px solid;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: inset #ffffff40 2px 2px 5px;
+            color: azure;
+            background-color: #252727;
+
+            .img {
                 width: 140px;
                 aspect-ratio: 1;
                 border-radius: '5px';
-                // background: #000;
-                img{
+
+                img {
                     width: 140px;
                     aspect-ratio: 1;
                     object-fit: contain;
                 }
             }
-            .content{
+
+            .content {
                 width: 290px;
 
-                p{
+                p {
                     margin: 0px;
                     font-size: 12px;
                 }
