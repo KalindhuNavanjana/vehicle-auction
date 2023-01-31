@@ -7,6 +7,7 @@ import VehicleItem from "./VehicleItem";
 const Home = () => {
     const [vehicles, setVehicles] = useState([]);
     const [biddings, setbiddings] = useState([]);
+    const [showCart, setshowCart] = useState(false);
 
     const Brands = ["Volkswagen", "Audi", "Ford", "Mercedes", "BMW"];
     const cart = useRef(null);
@@ -24,10 +25,14 @@ const Home = () => {
         bids.push(item);
         setbiddings(bids);
         console.log(biddings);
+        this. forceUpdate()
     };
 
-    useEffect(() => {
-    }, [biddings]);
+
+    const toggleCart = () =>{
+        setshowCart(!showCart)
+    }
+
 
     useEffect(() => {
         axios.get("http://157.245.61.32:7979/vehicles").then((res) => {
@@ -55,6 +60,8 @@ const Home = () => {
                 </select>
             </div>
 
+            <button onClick={toggleCart}>Show Cart</button>
+
             <Row xs={1} md={2} lg={3} className='card-grid'>
                 {vehicles.map((vehicle) => (
                     <VehicleItem
@@ -65,14 +72,15 @@ const Home = () => {
                 ))}
             </Row>
 
-            <div className='cart' ref={cart}>
+            {showCart ? (<div className='cart' ref={cart} >
+                <h2>Cart</h2>
                 {biddings.map((item) => (
                     <BidItem
                         key={item.id}
                         item={item}
                     />
                 ))}
-            </div>
+            </div>):(null)}
         </div>
     );
 };

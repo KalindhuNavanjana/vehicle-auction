@@ -4,9 +4,9 @@ import { Card } from "react-bootstrap";
 const BidItem = ({ item: { bid, id, name, details }}) => {
     return (
         <Card className='cart-item row'>
-            <div className='col-4'>
+            <div className='img'>
                 {details.image ? (
-                    <Card.Img
+                    <img
                         className='image'
                         variant='left'
                         src={details.image}
@@ -19,7 +19,7 @@ const BidItem = ({ item: { bid, id, name, details }}) => {
                     </div>
                 )}
             </div>
-            <div className='col-8'>
+            <div className='content'>
                 <p className="name">{name}</p>
                 <p className="name">{details.brand}{" "}{details.manufactureYear}</p>
                 <p className="name">{details.price}</p>
