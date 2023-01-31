@@ -9,6 +9,7 @@ const Home = () => {
     const [brand, setBrand] = useState(null);
     const [biddings, setbiddings] = useState([]);
     const [showCart, setshowCart] = useState(false);
+    const [total, setTotal] = useState(0);
 
     const Brands = ["Volkswagen", "Audi", "Ford", "Mercedes", "BMW"];
 
@@ -16,7 +17,7 @@ const Home = () => {
     const cart = useRef(null);
 
     const addToBiddings = (amount, id, name, details) => {
-        console.log(amount);
+        // console.log(amount);
         const item = {
             bid: amount,
             id: id,
@@ -27,9 +28,18 @@ const Home = () => {
         let bids = biddings;
         bids.push(item);
         setbiddings(bids);
-        console.log(biddings);
-        this.forceUpdate();
+        // console.log(biddings);
+        updateTotal()
     };
+
+    const updateTotal = () => {
+        let temp = 0;
+        biddings.forEach(element => {
+            temp = parseInt(temp) + parseInt(element.bid);
+        });
+
+        setTotal(temp);
+    }
 
     const toggleCart = () => {
         setshowCart(!showCart);
@@ -98,6 +108,7 @@ const Home = () => {
                     {biddings.map((item) => (
                         <BidItem key={item.id} item={item} />
                     ))}
+                    <h3 className="total">Rs. {total} /=</h3>
                 </div>
             ) : null}
         </div>

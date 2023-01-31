@@ -10,6 +10,7 @@ const BidItem = ({ item: { bid, id, name, details }}) => {
                         className='image'
                         variant='left'
                         src={details.image}
+                        alt=''
                     />
                 ) : (
                     <div className='image d-flex align-items-center justify-content-center'>

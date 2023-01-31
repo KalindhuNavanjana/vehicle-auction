@@ -148,4 +148,12 @@
   margin: 0px;
   font-size: 12px;
 }
+
+.main .cart .total {
+  text-align: end;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+}
 /*# sourceMappingURL=App.css.map */

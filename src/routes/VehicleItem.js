@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Button, Card, Col, Toast } from "react-bootstrap";
+import { Card, Col, Toast } from "react-bootstrap";
 
-const VehicleItem = ({ vehicle: { id, name, details },addToBiddings }) => {
+const VehicleItem = ({ vehicle: { id, name, details }, addToBiddings }) => {
     const [btnDisabled, setBtnDisabled] = useState(true);
     const [showToast, setShowToast] = useState(false);
     const [toastInfo, setToastInfo] = useState({
@@ -18,7 +18,7 @@ const VehicleItem = ({ vehicle: { id, name, details },addToBiddings }) => {
     };
 
     const handleChange = (event) => {
-        if (input.current.value != "") {
+        if (input.current.value !== "") {
             console.log("hello");
             setBtnDisabled(false);
         } else {
@@ -33,15 +33,15 @@ const VehicleItem = ({ vehicle: { id, name, details },addToBiddings }) => {
             const biddingAmount = input.current.value;
             input.current.value = 0;
             setBtnDisabled(true);
-
-            addToBiddings(biddingAmount,id,name,details);
-
             setToastInfo({
                 topic: "Successful",
                 content: "Your bid has been recorded",
                 theme:'success'
             });
             toggleToast();
+
+            addToBiddings(biddingAmount,id,name,details);
+
         } else {
             setToastInfo({
                 topic: "Oops!",
