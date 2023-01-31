@@ -1,0 +1,70 @@
+// @import "~bootstrap/scss/bootstrap";
+
+.main{
+    background-color: rgb(58, 54, 54);
+    min-height: 100vh;
+    margin: 0px;
+    padding: 20px 30px;
+
+    h1{
+        text-align: center;
+        color: azure;
+    }
+
+    .card-grid{
+        margin: 30px 0px;
+        .card{
+            box-shadow: #00000050 2px 2px 3px;
+            background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 33%,  #494743 66%,  #989589 100%);
+            color: azure;
+
+            .vehicle-name{
+                font-size: 20px;
+                font-weight: 700;
+                color: #310680;
+                padding: 0px;
+                margin: 15px 0px 0px 0px;
+            }
+
+            .brand{
+                margin: 0px;
+            }
+
+            .image{
+                aspect-ratio: 16/9;
+            }
+
+            .card-info{
+
+                display: flex;
+                justify-content: space-between;
+                .color{
+                    height: 20px;
+                    aspect-ratio: 1;
+                    border-radius: 50px;
+                    border: azure 1px solid;
+                }
+
+                
+            }
+
+            .bid-btn{
+                background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 33%,  #494743 66%,  #989589 100%);
+                transition: ease-in-out 0.3s;
+
+                &:hover{
+                    background-image: linear-gradient(150deg, #5e5c55 0%, rgb(192, 182, 168) 50%,  #494743 100%,  #989589 100%);
+                    transition: ease-in-out 0.4s;
+                }
+            }
+        }
+    }
+
+    .cart{
+        min-height: 80vh;
+        width: 400px;
+        position: absolute;
+        right: 0px;
+        top: 150px;
+    }
+}

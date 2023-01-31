@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.main {
+  background-color: #3a3636;
   min-height: 100vh;
+  margin: 0px;
+  padding: 20px 30px;
+}
+
+.main h1 {
+  text-align: center;
+  color: azure;
+}
+
+.main .card-grid {
+  margin: 30px 0px;
+}
+
+.main .card-grid .card {
+  -webkit-box-shadow: #00000050 2px 2px 3px;
+          box-shadow: #00000050 2px 2px 3px;
+  background-image: linear-gradient(150deg, #5e5c55 0%, #c0b6a8 33%, #494743 66%, #989589 100%);
+  color: azure;
+}
+
+.main .card-grid .card .vehicle-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #310680;
+  padding: 0px;
+  margin: 15px 0px 0px 0px;
+}
+
+.main .card-grid .card .brand {
+  margin: 0px;
+}
+
+.main .card-grid .card .image {
+  aspect-ratio: 16/9;
+}
+
+.main .card-grid .card .card-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.main .card-grid .card .card-info .color {
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 50px;
+  border: azure 1px solid;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main .card-grid .card .bid-btn {
+  background-image: linear-gradient(150deg, #5e5c55 0%, #c0b6a8 33%, #494743 66%, #989589 100%);
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
 }
+
+.main .card-grid .card .bid-btn:hover {
+  background-image: linear-gradient(150deg, #5e5c55 0%, #c0b6a8 50%, #494743 100%, #989589 100%);
+  -webkit-transition: ease-in-out 0.4s;
+  transition: ease-in-out 0.4s;
+}
+
+.main .cart {
+  min-height: 80vh;
+  width: 400px;
+  position: absolute;
+  right: 0px;
+  top: 150px;
+}
+/*# sourceMappingURL=App.css.map */
